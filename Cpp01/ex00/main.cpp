@@ -7,6 +7,6 @@ int main()
     zom->announce();
     cout << "randomChump declaration." << std:: endl;
     randomChump("liaon");
-    delete (zom);
+    delete zom;
     return (0);
 }

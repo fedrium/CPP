@@ -7,10 +7,10 @@ void    Zombie::announce( void )
 
 Zombie::Zombie(std:: string zname)
 {
-    zname = name;
+    name = zname;
 };
 
 Zombie::~Zombie()
 {
-    cout << name << "is ded" << std::endl;
+    cout << name << " is ded" << std::endl;
 };
