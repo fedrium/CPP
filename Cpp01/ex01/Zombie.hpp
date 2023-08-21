@@ -4,8 +4,6 @@
 #include <iostream>
 #include <string>
 
-using std::cout;
-
 class Zombie
 {
 	private:
@@ -16,8 +14,6 @@ class Zombie
 		~Zombie();
 };
 
-Zombie* newZombie(std:: string name);
-
-void 	randomChump(std:: string name);
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

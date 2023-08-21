@@ -2,7 +2,7 @@
 
 void    Zombie::announce( void )
 {
-    cout << name << ": BraiiiiiiinnnzzzZ..." << std:: endl;
+    std:: cout << name << ": BraiiiiiiinnnzzzZ..." << std:: endl;
 };
 
 Zombie::Zombie(std:: string zname)
@@ -12,5 +12,5 @@ Zombie::Zombie(std:: string zname)
 
 Zombie::~Zombie()
 {
-    cout << name << "is ded" << std::endl;
+    std:: cout << name << "is ded" << std::endl;
 };
