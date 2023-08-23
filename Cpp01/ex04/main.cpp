@@ -19,12 +19,12 @@ int main(int argc, char **argv)
 	while (file.find(s1, currentPos) != std::string::npos)
 	{
 		pos = file.find(s1, currentPos);
-		res.append(file.substr(currentPos, pos - 1));
+		res.append(file.substr(currentPos, pos - currentPos));
 		res.append(s2);
 		currentPos = pos + s1.size();
 		// std::cout << res;
 	}
-	std::cout << currentPos;
-	res.append(file.substr(currentPos + s1.size(), file.size()));
+	// std::cout << currentPos;
+	res.append(file.substr(currentPos + s1.size(), file.size() - currentPos + s1.size()));
 	std::cout << res;
 }
