@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-	std::string file, line, s1, s2, res;
+	std::string file, line, s1, s2, res, outputName;
 	std::ifstream fileName;
 	int pos, currentPos;
 
@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	currentPos = 0;
 	s1 = argv[2];
 	s2 = argv[3];
-	fileName.open(argv[1]);
+	fileName.open(argv[1], std::ios::in);
 	while (getline(fileName, line))
 		file.append(line).append("\n");
 	while (file.find(s1, currentPos) != std::string::npos)
@@ -21,10 +21,15 @@ int main(int argc, char **argv)
 		pos = file.find(s1, currentPos);
 		res.append(file.substr(currentPos, pos - currentPos));
 		res.append(s2);
-		currentPos = pos + s1.size();
-		// std::cout << res;
+		currentPos = pos + s1.length();
 	}
-	// std::cout << currentPos;
-	res.append(file.substr(currentPos + s1.size(), file.size() - currentPos + s1.size()));
+	res.append(file.substr(currentPos, file.length() - currentPos));
 	std::cout << res;
+
+	outputName = argv[1];
+	outputName.append(".replace");
+
+	std::ofstream output(outputName);
+	output << res;
+	output.close();
 }
