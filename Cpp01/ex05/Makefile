@@ -1,6 +1,6 @@
 SRC:= *.cpp
 
-NAME:= zombie
+NAME:= harl
 
 RM:= rm -rf
 
