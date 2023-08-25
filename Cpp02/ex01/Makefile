@@ -1,6 +1,6 @@
 SRC:= *.cpp
 
-NAME:= fixed
+NAME:= fixed2
 
 RM:= rm -rf
 

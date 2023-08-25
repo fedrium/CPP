@@ -4,12 +4,18 @@
 #include <iostream>
 #include <string>
 
-class FPN
+class Fixed
 {
 	public:
-		FPN();
-		FPN(FPN &c);
-		
+		Fixed();
+		Fixed(Fixed &c);
+		Fixed &operator=(Fixed &copy);
+		~Fixed();
+		int		getRawBits(void);
+		void	setRawBits(int const var);
+	private:
+		int	fpvn;
+		static const int fb;
 };
 
 #endif

@@ -5,7 +5,7 @@ void    Zombie::announce( void )
     cout << name << ": BraiiiiiiinnnzzzZ..." << std:: endl;
 };
 
-Zombie::Zombie(std:: string zname)
+Zombie::Zombie(std::string zname)
 {
     name = zname;
 };

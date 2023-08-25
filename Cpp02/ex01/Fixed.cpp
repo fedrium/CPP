@@ -1,9 +1,15 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed(const int i)
 {
-    fpvn = 0;
-    std::cout << "Default constructor called" << std::endl;
+    this->setRawBits(i);
+    std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float f)
+{
+    this->setRawBits(f);
+    std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed &c)
@@ -21,6 +27,11 @@ Fixed &Fixed::operator=(Fixed &copy)
     return (*this);
 }
 
+std::ostream &operator<<(std::ostream &out, const Fixed &c)
+{
+    out << c.getRawBits();
+}
+
 int Fixed::getRawBits(void)
 {
     std::cout << "getRawBits member function called" << std::endl;
@@ -36,3 +47,4 @@ Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
 }
+

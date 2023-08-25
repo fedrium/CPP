@@ -1,6 +1,6 @@
 SRC:= *.cpp
 
-NAME:= fixed
+NAME:= claptrap
 
 RM:= rm -rf
 

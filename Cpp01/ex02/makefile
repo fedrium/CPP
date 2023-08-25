@@ -1,6 +1,6 @@
-SRC:= *.cpp
+SRC:= main.cpp
 
-NAME:= fixed
+NAME:= zombie
 
 RM:= rm -rf
 
