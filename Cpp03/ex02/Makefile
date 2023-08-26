@@ -1,11 +1,11 @@
 SRC:= *.cpp
 
-NAME:= scavtrap
+NAME:= fragtrap
 
 RM:= rm -rf
 
 all:
-	c++ -Wall -Wextra -Werror ${SRC} -o ${NAME} -std=c++98
+	c++ -Wall -Wextra -Werror ${SRC} -o ${NAME}
 
 clean:
 	${RM} *.o

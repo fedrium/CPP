@@ -9,13 +9,18 @@ ClapTrap::ClapTrap(std::string Name)
     this->atk = 0;
 }
 
-ClapTrap::ClapTrap(ClapTrap &c)
+ClapTrap::ClapTrap()
+{
+    
+}
+
+ClapTrap::ClapTrap(const ClapTrap &c)
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = c;
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap &copy)
+ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this == &copy)

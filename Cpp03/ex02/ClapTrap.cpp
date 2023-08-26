@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(std::string Name)
 
 ClapTrap::ClapTrap()
 {
-    
+
 }
 
 ClapTrap::ClapTrap(ClapTrap &c)
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(ClapTrap &c)
     *this = c;
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap &copy)
+ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this == &copy)
