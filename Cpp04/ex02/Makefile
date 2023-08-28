@@ -1,6 +1,6 @@
 SRC:= *.cpp
 
-NAME:= animal
+NAME:= abstract
 
 RM:= rm -rf
 
