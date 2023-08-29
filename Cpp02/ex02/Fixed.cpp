@@ -66,3 +66,4 @@ int     Fixed::toInt(void) const
 {
     return (this->fpvn / (1 << this->fb));
 }
+
