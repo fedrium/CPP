@@ -20,12 +20,12 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
-        bool    operator>(Fixed const& c);
-        bool    operator<(Fixed const& c);
-        bool    operator>=(Fixed const& c);
-        bool    operator<=(Fixed const& c);
-        bool    operator==(Fixed const& c);
-        bool    operator!=(Fixed const& c);
+        bool    operator>(Fixed const& c) const;
+        bool    operator<(Fixed const& c) const;
+        bool    operator>=(Fixed const& c) const;
+        bool    operator<=(Fixed const& c) const;
+        bool    operator==(Fixed const& c) const;
+        bool    operator!=(Fixed const& c) const;
 
         Fixed   operator+(Fixed const& c);
         Fixed   operator-(Fixed const& c);

@@ -42,32 +42,32 @@ std::ostream &operator<<(std::ostream &out, const Fixed &c)
 }
 
 /*ex02 functions*/
-bool    Fixed::operator>(Fixed const& c)
+bool    Fixed::operator>(Fixed const& c) const
 {
 	return (fpvn > c.fpvn);
 }
 
-bool    Fixed::operator<(Fixed const& c)
+bool    Fixed::operator<(Fixed const& c) const
 {
 	return (fpvn < c.fpvn);
 }
 
-bool    Fixed::operator<=(Fixed const& c)
+bool    Fixed::operator<=(Fixed const& c) const
 {
 	return (fpvn <= c.fpvn);
 }
 
-bool    Fixed::operator>=(Fixed const& c)
+bool    Fixed::operator>=(Fixed const& c) const
 {
 	return (fpvn >= c.fpvn);
 }
 
-bool    Fixed::operator==(Fixed const& c)
+bool    Fixed::operator==(Fixed const& c) const
 {
 	return (fpvn == c.fpvn);
 }
 
-bool    Fixed::operator!=(Fixed const& c)
+bool    Fixed::operator!=(Fixed const& c) const
 {
 	return (fpvn != c.fpvn);
 }
@@ -75,29 +75,29 @@ bool    Fixed::operator!=(Fixed const& c)
 /*+-*/
 Fixed   Fixed::operator+(Fixed const& c)
 {
-	int one = toFloat();
-	int two = c.toFloat();
+	float one = toFloat();
+	float two = c.toFloat();
 	return (one + two);
 }
 
 Fixed   Fixed::operator-(Fixed const& c)
 {
-	int one = toFloat();
-	int two = c.toFloat();
+	float one = toFloat();
+	float two = c.toFloat();
 	return (one - two);
 }
 
 Fixed   Fixed::operator*(Fixed const& c)
 {
-	int one = toFloat();
-	int two = c.toFloat();
+	float one = toFloat();
+	float two = c.toFloat();
 	return (one * two);
 }
 
 Fixed   Fixed::operator/(Fixed const& c)
 {
-	int one = toFloat();
-	int two = c.toFloat();
+	float one = toFloat();
+	float two = c.toFloat();
 	return (one / two);
 }
 
@@ -180,11 +180,11 @@ Fixed::~Fixed()
 
 float   Fixed::toFloat(void) const
 {
-	return(this->fpvn / (float)(1 << this->fb));
+	return((float)this->fpvn / (float)(1 << this->fb));
 }
 
 int     Fixed::toInt(void) const
 {
-	return (this->fpvn / (1 << this->fb));
+	return ((int)this->fpvn / (int)(1 << this->fb));
 }
 
