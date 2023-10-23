@@ -4,6 +4,7 @@
 #include <iostream>
 #include <ostream>
 #include <string>
+#include <cmath>
 
 class Fixed
 {
@@ -31,16 +32,16 @@ class Fixed
         Fixed   operator*(Fixed const& c);
         Fixed   operator/(Fixed const& c);
 
-        Fixed   &operator++(int);
-        Fixed   &operator--(int);
+        Fixed   operator++(int);
+        Fixed   operator--(int);
 
         Fixed   operator++();
         Fixed   operator--();
 
-        static int min(Fixed &c1, Fixed &c2);
-        static int max(const Fixed &c1, const Fixed &c2);
-        static int min2(Fixed &c1, Fixed &c2);
-        static int max2(const Fixed &c1, const Fixed &c2);
+        static Fixed min(Fixed &c1, Fixed &c2);
+        static Fixed max(Fixed &c1, Fixed &c2);
+        static Fixed min(const Fixed &c1, const Fixed &c2);
+        static Fixed max(const Fixed &c1, const Fixed &c2);
 	private:
 		int	fpvn;
 		static const int fb;

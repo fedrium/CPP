@@ -10,7 +10,7 @@ Fixed::Fixed(const int i)
 
 Fixed::Fixed(const float f)
 {
-	this->fpvn = roundf(f * (1 << this->fb));
+	this->fpvn = std::roundf(f * (1 << this->fb));
 	std::cout << "Float constructor called" << std::endl;
 }
 
@@ -102,7 +102,64 @@ Fixed   Fixed::operator/(Fixed const& c)
 }
 
 /*doubles*/
+Fixed	Fixed::operator++(int)
+{
+	Fixed temp(*this);
+	this->fpvn += 1;
+	return (temp);
+}
 
+Fixed	Fixed::operator--(int)
+{
+	Fixed temp(*this);
+	this->fpvn -= 1;
+	return (temp);
+}
+
+Fixed	Fixed::operator++()
+{
+	this->fpvn += 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator--()
+{
+	this->fpvn += 1;
+	return (*this);
+}
+
+/*minmax*/
+Fixed Fixed::min(Fixed &c1, Fixed &c2)
+{
+	if (c1 > c2)
+		return(c2);
+	else
+		return(c1);
+}
+
+Fixed Fixed::min(const Fixed &c1, const Fixed &c2)
+{
+	if (c1 > c2)
+		return (c2);
+	else
+		return (c1);
+}
+
+Fixed Fixed::max(Fixed &c1, Fixed &c2)
+{
+	if (c1 < c2)
+		return(c2);
+	else
+		return(c1);
+}
+
+Fixed Fixed::max(const Fixed &c1, const Fixed &c2)
+{
+	if (c1 < c2)
+		return (c2);
+	else
+		return (c1);
+}
 
 /*getsetter*/
 int Fixed::getRawBits(void) const
