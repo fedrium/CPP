@@ -13,7 +13,7 @@ int main()
     	std::cout << "PhoneBook" << endl;
 		std::cout << "ADD | SEARCH | EXIT" << endl;
 		std::cout << "Input: ";
-		std::cin >> input;
+		getline(std::cin, input);
 		if (input == "ADD")
 		{
 			pb.add_contact(i);
@@ -27,7 +27,19 @@ int main()
 		{
 			std::exit(0);
 		}
+		if (std::cin.eof())
+			std::exit(0);
 	}
+}
+
+int	isNumber(string input)
+{
+	for (int i = 0; input[i] != '\0'; i++)
+	{
+		if (isdigit(input[i]) == 0)
+			return (0);
+	}
+	return 1;
 }
 
 void	PhoneBook::search_contact()
@@ -59,9 +71,17 @@ void	PhoneBook::search_contact()
 			std::cout << std::setw(10) << contact[j].nickname << "|" << endl;
 	}
 
+
 	int input;
+	std::string	str;
 	std::cout << "SEARCHING FOR: ";
-	std::cin >> input;
+	getline(std::cin, str);
+	if (isNumber(str) == 0)
+	{
+		std::cout << "Invalid index" << endl;
+		return;
+	}
+	input = std::stoi(str);
 	if (contact[input - 1].first_name.size() == 0)
 		std::cout << "Invalid index" << endl;
 	else if (input > 0 && input < 9)
@@ -79,13 +99,13 @@ void	PhoneBook::search_contact()
 void	PhoneBook::add_contact(int i)
 {
 	std::cout << "First Name: ";
-	std::cin >> contact[i].first_name;
+	getline(std::cin, contact[i].first_name);
 	std::cout << "Last Name: ";
-	std::cin >> contact[i].last_name;
+	getline(std::cin, contact[i].last_name);
 	std::cout << "Nickname: ";
-	std::cin >> contact[i].nickname;
+	getline(std::cin, contact[i].nickname);
 	std::cout << "Phone Number: ";
-	std::cin >> contact[i].phone_number;
+	getline(std::cin, contact[i].phone_number);
 	std::cout << "Darkest Secret: ";
-	std::cin >> contact[i].secret;
+	getline(std::cin, contact[i].secret);
 }

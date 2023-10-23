@@ -19,17 +19,17 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
-        bool    &operator>(Fixed const& c);
-        bool    &operator<(Fixed const& c);
-        bool    &operator>=(Fixed const& c);
-        bool    &operator<=(Fixed const& c);
-        bool    &operator==(Fixed const& c);
-        bool    &operator!=(Fixed const& c);
+        bool    operator>(Fixed const& c);
+        bool    operator<(Fixed const& c);
+        bool    operator>=(Fixed const& c);
+        bool    operator<=(Fixed const& c);
+        bool    operator==(Fixed const& c);
+        bool    operator!=(Fixed const& c);
 
-        Fixed   &operator+(Fixed const& c);
-        Fixed   &operator-(Fixed const& c);
-        Fixed   &operator*(Fixed const& c);
-        Fixed   &operator/(Fixed const& c);
+        Fixed   operator+(Fixed const& c);
+        Fixed   operator-(Fixed const& c);
+        Fixed   operator*(Fixed const& c);
+        Fixed   operator/(Fixed const& c);
 
         Fixed   &operator++(int);
         Fixed   &operator--(int);
@@ -39,8 +39,8 @@ class Fixed
 
         static int min(Fixed &c1, Fixed &c2);
         static int max(const Fixed &c1, const Fixed &c2);
-        static int min(Fixed &c1, Fixed &c2);
-        static int max(const Fixed &c1, const Fixed &c2);
+        static int min2(Fixed &c1, Fixed &c2);
+        static int max2(const Fixed &c1, const Fixed &c2);
 	private:
 		int	fpvn;
 		static const int fb;

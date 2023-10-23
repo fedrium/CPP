@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 		currentPos = pos + s1.length();
 	}
 	res.append(file.substr(currentPos, file.length() - currentPos));
-	std::cout << res;
+	// std::cout << res;
 
 	outputName = argv[1];
 	outputName.append(".replace");

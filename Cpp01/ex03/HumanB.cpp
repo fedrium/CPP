@@ -1,10 +1,5 @@
 #include "HumanB.hpp"
 
-// HumanB::HumanB(std::string name, Weapon &wep) : weapon(wep)
-// {
-//     this->name = name;
-// }
-
 HumanB::HumanB(std::string Name)
 {
     name = Name;
