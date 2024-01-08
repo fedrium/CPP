@@ -9,6 +9,7 @@ int main(int argc, char **argv)
 	if (argc != 4)
 	{
 		std::cout << "invalid parameter" << std::endl;
+		exit(0);
 	}
 	currentPos = 0;
 	s1 = argv[2];

@@ -60,6 +60,11 @@ void	bureaucrat::decrement()
 		throw this->GradeTooLowException;
 }
 
+void	bureaucrat::signForm()
+{
+	
+}
+
 std::ostream& operator<<(std::ostream& os, const bureaucrat& bu)
 {
 	os << bu.getName() <<  " , bureaucrat grade " << bu.getGrade() << std::endl;

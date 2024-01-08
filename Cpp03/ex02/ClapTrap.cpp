@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(std::string Name)
 
 ClapTrap::ClapTrap()
 {
-
+    std::cout << "Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap &c)

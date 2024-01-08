@@ -28,6 +28,7 @@ class bureaucrat{
 		bureaucrat(std::string name, int grade);
 		void	increment();
 		void	decrement();
+		void	signForm();
 	private:
 		int grade;
 		std::string name;

@@ -3,17 +3,16 @@
 int main()
 {
     ClapTrap A("William");
-    ClapTrap B(A);
-    ClapTrap C;
+    ClapTrap B("Wallace");
+    ClapTrap C("Edison");
 
-    C = A;
     A.attack("Wallace");
-    A.takeDamage(3);
-    A.beRepaired(1);
-    B.attack("Edison");
-    B.takeDamage(3);
+    B.takeDamage(0);
     B.beRepaired(1);
-    C.attack("Qua");
-    C.takeDamage(3);
+    B.attack("Edison");
+    C.takeDamage(0);
     C.beRepaired(1);
+    B.attack("William");
+    A.takeDamage(0);
+    A.beRepaired(1);
 }

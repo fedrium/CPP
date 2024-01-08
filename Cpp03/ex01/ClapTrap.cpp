@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(std::string Name)
 
 ClapTrap::ClapTrap()
 {
-    
+    std::cout << "Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &c)
@@ -51,6 +51,10 @@ void    ClapTrap::attack(const std::string& target)
 void    ClapTrap::takeDamage(unsigned int amount)
 {
     this->HP = this->HP - amount;
+    if (this->HP < 0)
+    {
+        std::cout << "ClapTrap " << this->Name << "is dead" << std::endl;
+    }
     std::cout << "ClapTrap " << this->Name << " took " << amount << " of damage" << std::endl;
     std::cout << "HP: " << this->HP << std::endl;
 }

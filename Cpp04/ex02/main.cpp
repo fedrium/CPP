@@ -5,7 +5,7 @@
 
 int main()
 {
-	// Animal Ani;
+	Animal Ani; 
 
 	return (0);
 }

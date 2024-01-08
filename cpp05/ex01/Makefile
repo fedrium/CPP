@@ -1,11 +1,11 @@
 SRC:= *.cpp
 
-NAME:= brain
+NAME:= bureaucrat
 
 RM:= rm -rf
 
 all:
-	c++ -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3 ${SRC} -o ${NAME}
+	c++ -Wall -Wextra -Werror -std=c++98 ${SRC} -o ${NAME}
 
 clean:
 	${RM} *.o

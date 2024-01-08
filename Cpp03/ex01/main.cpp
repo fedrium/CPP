@@ -3,17 +3,17 @@
 int main()
 {
     ScavTrap A("William");
-    ScavTrap B(A);
-    ScavTrap C;
+    ScavTrap B("Wallace");
+    ScavTrap C("Edison");
 
-    C = A;
     A.attack("Wallace");
-    A.takeDamage(3);
-    A.beRepaired(1);
-    B.attack("Edison");
-    B.takeDamage(3);
+    B.takeDamage(20);
     B.beRepaired(1);
-    C.attack("Qua");
-    C.takeDamage(3);
+    A.guardGate();
+    B.attack("Edison");
+    C.takeDamage(20);
     C.beRepaired(1);
+    B.attack("William");
+    A.takeDamage(20);
+    A.beRepaired(1);
 }

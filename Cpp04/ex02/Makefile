@@ -5,7 +5,7 @@ NAME:= abstract
 RM:= rm -rf
 
 all:
-	c++ -Wall -Wextra -Werror -g ${SRC} -o ${NAME}
+	c++ -Wall -Wextra -Werror -std=c++98 ${SRC} -o ${NAME}
 
 clean:
 	${RM} *.o
