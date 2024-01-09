@@ -5,15 +5,7 @@
 #include <ostream>
 #include <string.h>
 
-class GradeHigh : public std::exception {
-	public:
-		virtual const char	*what() const throw();
-};
-
-class GradeLow : public std::exception {
-	public:
-		virtual const char	*what() const throw();
-};
+class form;
 
 class bureaucrat{
 	public:
@@ -23,12 +15,19 @@ class bureaucrat{
 		~bureaucrat();
 		std::string	getName() const;
 		int			getGrade() const;
-		GradeHigh GradeTooHighException;
-		GradeLow GradeTooLowException;
+		class GradeHigh : public std::exception {
+			public:
+				virtual const char	*what() const throw();
+		};
+
+		class GradeLow : public std::exception {
+			public:
+				virtual const char	*what() const throw();
+		};
 		bureaucrat(std::string name, int grade);
 		void	increment();
 		void	decrement();
-		void	signForm();
+		void	signForm(form &Form);
 	private:
 		int grade;
 		std::string name;

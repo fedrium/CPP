@@ -30,7 +30,7 @@ class bureaucrat{
 		void	decrement();
 	private:
 		int grade;
-		std::string name;
+		const std::string name;
 };
 
 std::ostream& operator<<(std::ostream& os, const bureaucrat& bu);

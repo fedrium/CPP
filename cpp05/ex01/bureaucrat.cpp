@@ -1,23 +1,21 @@
 #include "bureaucrat.hpp"
 
-bureaucrat::bureaucrat()
+bureaucrat::bureaucrat() : name("NULL")
 {
 	std::cout << "bureaucrat::Default constructor called" << std::endl;
-	this->name = "NULL";
-	this->grade = 0;
+	this->grade = 150;
 }
 
-bureaucrat::bureaucrat(const bureaucrat &c)
+bureaucrat::bureaucrat(const bureaucrat &c) : name(c.name)
 {
 	std::cout << "bureaucrat::Copy constructor called" << std::endl;
-	*this = c;
+	this->grade = c.grade;
 }
 
 bureaucrat &bureaucrat::operator=(const bureaucrat &c)
 {
 	std::cout << "bureaucrat::Copy assignment operator called" << std::endl;
-	this->grade = c.getGrade();
-	this->name = c.getName();
+	this->grade = c.grade;
 	return (*this);
 }
 
@@ -36,12 +34,12 @@ int bureaucrat::getGrade() const
 	return grade;
 }
 
-const char *GradeHigh::what() const throw()
+const char *bureaucrat::GradeHigh::what() const throw()
 {
 	return "Grade too high.";
 }
 
-const char *GradeLow::what() const throw()
+const char *bureaucrat::GradeLow::what() const throw()
 {
 	return "Grade too low.";
 }
@@ -50,19 +48,14 @@ void	bureaucrat::increment()
 {
 	this->grade--;
 	if (this->grade < 1)
-		throw this->GradeTooHighException;
+		throw bureaucrat::GradeHigh();
 }
 
 void	bureaucrat::decrement()
 {
 	this->grade++;
 	if (this->grade > 150)
-		throw this->GradeTooLowException;
-}
-
-void	bureaucrat::signForm()
-{
-	
+		throw bureaucrat::GradeLow();
 }
 
 std::ostream& operator<<(std::ostream& os, const bureaucrat& bu)
@@ -71,9 +64,21 @@ std::ostream& operator<<(std::ostream& os, const bureaucrat& bu)
 	return os;
 }
 
-bureaucrat::bureaucrat(std::string name, int grade)
+bureaucrat::bureaucrat(std::string Name, int grade) : name(Name)
 {
 	std::cout << "Custom constructor called" << std::endl;
 	this->grade = grade;
-	this->name = name;
+}
+
+void	bureaucrat::signForm(form &Form)
+{
+	try
+	{
+		Form.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->name << " couldn't sign " << Form.getName() << " because " << e.what();
+	}
+	std::cout << this->name << " signed " << Form.getName();
 }

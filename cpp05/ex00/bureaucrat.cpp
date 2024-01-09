@@ -1,23 +1,21 @@
 #include "bureaucrat.hpp"
 
-bureaucrat::bureaucrat()
+bureaucrat::bureaucrat() : name("NULL")
 {
 	std::cout << "bureaucrat::Default constructor called" << std::endl;
-	this->name = "NULL";
-	this->grade = 0;
+	this->grade = 150;
 }
 
-bureaucrat::bureaucrat(const bureaucrat &c)
+bureaucrat::bureaucrat(const bureaucrat &c) : name(c.name)
 {
 	std::cout << "bureaucrat::Copy constructor called" << std::endl;
-	*this = c;
+	this->grade = c.grade;
 }
 
 bureaucrat &bureaucrat::operator=(const bureaucrat &c)
 {
 	std::cout << "bureaucrat::Copy assignment operator called" << std::endl;
-	this->grade = c.getGrade();
-	this->name = c.getName();
+	this->grade = c.grade;
 	return (*this);
 }
 
@@ -66,9 +64,8 @@ std::ostream& operator<<(std::ostream& os, const bureaucrat& bu)
 	return os;
 }
 
-bureaucrat::bureaucrat(std::string name, int grade)
+bureaucrat::bureaucrat(std::string Name, int grade) : name(Name)
 {
 	std::cout << "Custom constructor called" << std::endl;
 	this->grade = grade;
-	this->name = name;
 }

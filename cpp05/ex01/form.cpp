@@ -23,7 +23,7 @@ form::~form()
 	std::cout << "Destructor called" << std::endl;
 }
 
-std::string form::getName()
+std::string const form::getName()
 {
 	return (this->name);
 }
@@ -33,31 +33,42 @@ bool form::getSign()
 	return (this->sign);
 }
 
-const int form::getGradeSign()
+int const &form::getGradeSign()
 {
 	return (this->gradeSign);
 }
 
-const int form::getGradeExe()
+int const &form::getGradeExe()
 {
 	return (this->gradeExe);
 }
 
-const char *FormHigh::what() const throw()
+const char *form::FormHigh::what() const throw()
 {
 	return "Grade too high.";
 }
 
-const char *FormLow::what() const throw()
+const char *form::FormLow::what() const throw()
 {
 	return "Grade too low.";
 }
 
-void form::beSigned(bureaucrat bu)
+void form::beSigned(bureaucrat const &bu)
 {
 	if (bu.getGrade() <= this->getGradeSign())
 		this->sign = true;
 	else
-		throw this->GradeTooLowException;
+		throw form::FormLow();
 }
 
+std::ostream &operator<<(std::ostream& os, form &Form)
+{
+	os << "Form " << Form.getName() <<  ", signed(" << Form.getSign() << ") needs " << Form.getGradeSign() << " and " << Form.getGradeExe() << " to execute it." << std::endl;
+	return os;
+}
+
+form::form(std::string newName, int sign, int exe) : name(newName), gradeSign(sign), gradeExe(exe)
+{
+	std::cout << "Custom constructor called.";
+	this->sign = false;
+}

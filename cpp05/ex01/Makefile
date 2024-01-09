@@ -1,6 +1,6 @@
 SRC:= *.cpp
 
-NAME:= bureaucrat
+NAME:= form
 
 RM:= rm -rf
 

@@ -3,17 +3,8 @@
 
 #include <iostream>
 #include <string.h>
-#include <bureaucrat.hpp>
 
-class FormHigh : public std::exception {
-	public:
-		virtual const char	*what() const throw();
-};
-
-class FormLow : public std::exception {
-	public:
-		virtual const char	*what() const throw();
-};
+class bureaucrat;
 
 class form{
 	public:
@@ -21,18 +12,28 @@ class form{
 		form(const form &c);
 		form &operator=(const form &c);
 		~form();
-		std::string getName();
+		form(std::string newName, int sign, int exe);
+		std::string const getName();
 		bool getSign();
-		const int getGradeSign();
-		const int getGradeExe();
-		void	beSigned(bureaucrat bu);
-		FormHigh GradeTooHighException;
-		FormLow GradeTooLowException;
+		int const &getGradeSign();
+		int const &getGradeExe();
+		void	beSigned(bureaucrat const &bu);
+		class FormHigh : public std::exception {
+			public:
+				virtual const char	*what() const throw();
+		};
+
+		class FormLow : public std::exception {
+			public:
+				virtual const char	*what() const throw();
+		};
 	private:
-		const std::string name;
+		std::string const name;
 		bool sign;
-		const int gradeSign;
-		const int gradeExe;
+		int const gradeSign;
+		int const gradeExe;
 };
+
+std::ostream& operator<<(std::ostream& os, const form& Form);
 
 #endif
