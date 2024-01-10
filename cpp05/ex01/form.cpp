@@ -1,12 +1,13 @@
 #include "form.hpp"
+#include "bureaucrat.hpp"
 
-form::form() : gradeExe(1), gradeSign(1), name("NULL")
+form::form() :  name("NULL"), gradeSign(1), gradeExe(1)
 {
 	std::cout << "form::Default constructor called" << std::endl;
 	this->sign = false;
 }
 
-form::form(const form &c) : name(c.name), gradeExe(c.gradeExe), gradeSign(c.gradeSign)
+form::form(const form &c) : name(c.name), gradeSign(c.gradeSign), gradeExe(c.gradeExe)
 {
 	std::cout << "form::Copy constructor called" << std::endl;
 	*this = c;
@@ -15,6 +16,7 @@ form::form(const form &c) : name(c.name), gradeExe(c.gradeExe), gradeSign(c.grad
 form &form::operator=(const form &c)
 {
 	std::cout << "form::Copy assignment operator called" << std::endl;
+	this->sign = c.sign;
 	return (*this);
 }
 
@@ -23,22 +25,22 @@ form::~form()
 	std::cout << "Destructor called" << std::endl;
 }
 
-std::string const form::getName()
+std::string form::getName() const
 {
 	return (this->name);
 }
 
-bool form::getSign()
+bool form::getSign() const
 {
 	return (this->sign);
 }
 
-int const &form::getGradeSign()
+int form::getGradeSign() const
 {
 	return (this->gradeSign);
 }
 
-int const &form::getGradeExe()
+int form::getGradeExe() const
 {
 	return (this->gradeExe);
 }
@@ -61,14 +63,18 @@ void form::beSigned(bureaucrat const &bu)
 		throw form::FormLow();
 }
 
-std::ostream &operator<<(std::ostream& os, form &Form)
+std::ostream &operator<<(std::ostream& os, const form &Form)
 {
-	os << "Form " << Form.getName() <<  ", signed(" << Form.getSign() << ") needs " << Form.getGradeSign() << " and " << Form.getGradeExe() << " to execute it." << std::endl;
+	if (Form.getSign() == false)
+		os << "Form " << Form.getName() <<  ", not signed needs grade " << Form.getGradeSign() << " to sign and " << Form.getGradeExe() << " to execute it." << std::endl;
+	else
+		os << "Form " << Form.getName() <<  ", signed needs " << Form.getGradeSign() << " to sign and " << Form.getGradeExe() << " to execute it." << std::endl;
 	return os;
 }
 
 form::form(std::string newName, int sign, int exe) : name(newName), gradeSign(sign), gradeExe(exe)
 {
-	std::cout << "Custom constructor called.";
+	std::cout << "Custom constructor called." << std::endl;
 	this->sign = false;
+	if ()
 }

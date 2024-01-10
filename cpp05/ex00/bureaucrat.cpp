@@ -68,4 +68,8 @@ bureaucrat::bureaucrat(std::string Name, int grade) : name(Name)
 {
 	std::cout << "Custom constructor called" << std::endl;
 	this->grade = grade;
+	if (this->grade > 150)
+		throw this->GradeTooLowException;
+	if (this->grade < 1)
+		throw this->GradeTooHighException;
 }

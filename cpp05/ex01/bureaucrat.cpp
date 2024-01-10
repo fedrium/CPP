@@ -68,6 +68,10 @@ bureaucrat::bureaucrat(std::string Name, int grade) : name(Name)
 {
 	std::cout << "Custom constructor called" << std::endl;
 	this->grade = grade;
+	if (this->grade > 150)
+		throw bureaucrat::GradeLow();
+	if (this->grade < 1)
+		throw bureaucrat::GradeHigh();
 }
 
 void	bureaucrat::signForm(form &Form)
@@ -75,10 +79,10 @@ void	bureaucrat::signForm(form &Form)
 	try
 	{
 		Form.beSigned(*this);
+		std::cout << this->name << " signed " << Form.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << this->name << " couldn't sign " << Form.getName() << " because " << e.what();
+		std::cout << this->name << " couldn't sign " << Form.getName() << " because " << e.what() << std::endl;
 	}
-	std::cout << this->name << " signed " << Form.getName();
 }

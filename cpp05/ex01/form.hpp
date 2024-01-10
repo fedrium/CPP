@@ -13,10 +13,10 @@ class form{
 		form &operator=(const form &c);
 		~form();
 		form(std::string newName, int sign, int exe);
-		std::string const getName();
-		bool getSign();
-		int const &getGradeSign();
-		int const &getGradeExe();
+		std::string getName() const;
+		bool getSign() const;
+		int getGradeSign() const;
+		int getGradeExe() const;
 		void	beSigned(bureaucrat const &bu);
 		class FormHigh : public std::exception {
 			public:
@@ -34,6 +34,6 @@ class form{
 		int const gradeExe;
 };
 
-std::ostream& operator<<(std::ostream& os, const form& Form);
+std::ostream& operator<<(std::ostream& os, const form &Form);
 
 #endif
