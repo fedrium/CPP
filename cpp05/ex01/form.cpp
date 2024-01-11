@@ -76,5 +76,8 @@ form::form(std::string newName, int sign, int exe) : name(newName), gradeSign(si
 {
 	std::cout << "Custom constructor called." << std::endl;
 	this->sign = false;
-	if ()
+	if (sign  < 1 || exe < 1)
+		throw form::FormHigh();
+	else if (sign > 150 || exe > 150)
+		throw form::FormLow();
 }
