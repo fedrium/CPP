@@ -1,6 +1,6 @@
 SRC:= *.cpp
 
-NAME:= Form
+NAME:= AForm
 
 RM:= rm -rf
 

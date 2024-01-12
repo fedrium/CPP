@@ -74,15 +74,15 @@ bureaucrat::bureaucrat(std::string Name, int grade) : name(Name)
 		throw bureaucrat::GradeHigh();
 }
 
-void	bureaucrat::signForm(Form &Form)
+void	bureaucrat::signAForm(AForm &AForm)
 {
 	try
 	{
-		Form.beSigned(*this);
-		std::cout << this->name << " signed " << Form.getName() << std::endl;
+		AForm.beSigned(*this);
+		std::cout << this->name << " signed " << AForm.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << this->name << " couldn't sign " << Form.getName() << " because " << e.what() << std::endl;
+		std::cout << this->name << " couldn't sign " << AForm.getName() << " because " << e.what() << std::endl;
 	}
 }

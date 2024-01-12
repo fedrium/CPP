@@ -27,7 +27,7 @@ class bureaucrat{
 		bureaucrat(std::string name, int grade);
 		void	increment();
 		void	decrement();
-		void	signForm(Form &Form);
+		void	signAForm(AForm &AForm);
 	private:
 		int grade;
 		std::string name;

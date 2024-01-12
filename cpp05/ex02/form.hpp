@@ -6,24 +6,24 @@
 
 class bureaucrat;
 
-class Form{
+class AForm{
 	public:
-		Form();
-		Form(const Form &c);
-		Form &operator=(const Form &c);
-		~Form();
-		Form(std::string newName, int sign, int exe);
+		AForm();
+		AForm(const AForm &c);
+		AForm &operator=(const AForm &c);
+		virtual ~AForm();
+		AForm(std::string newName, int sign, int exe);
 		std::string getName() const;
 		bool getSign() const;
 		int getGradeSign() const;
 		int getGradeExe() const;
 		void	beSigned(bureaucrat const &bu);
-		class FormHigh : public std::exception {
+		class AFormHigh : public std::exception {
 			public:
 				virtual const char	*what() const throw();
 		};
 
-		class FormLow : public std::exception {
+		class AFormLow : public std::exception {
 			public:
 				virtual const char	*what() const throw();
 		};
@@ -34,6 +34,6 @@ class Form{
 		int const gradeExe;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form &Form);
+std::ostream& operator<<(std::ostream& os, const AForm &AForm);
 
 #endif

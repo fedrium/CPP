@@ -1,69 +1,69 @@
 #include "form.hpp"
 #include "bureaucrat.hpp"
 
-form::form() :  name("NULL"), gradeSign(1), gradeExe(1)
+Form::Form() :  name("NULL"), gradeSign(1), gradeExe(1)
 {
-	std::cout << "form::Default constructor called" << std::endl;
+	std::cout << "Form::Default constructor called" << std::endl;
 	this->sign = false;
 }
 
-form::form(const form &c) : name(c.name), gradeSign(c.gradeSign), gradeExe(c.gradeExe)
+Form::Form(const Form &c) : name(c.name), gradeSign(c.gradeSign), gradeExe(c.gradeExe)
 {
-	std::cout << "form::Copy constructor called" << std::endl;
+	std::cout << "Form::Copy constructor called" << std::endl;
 	*this = c;
 }
 
-form &form::operator=(const form &c)
+Form &Form::operator=(const Form &c)
 {
-	std::cout << "form::Copy assignment operator called" << std::endl;
+	std::cout << "Form::Copy assignment operator called" << std::endl;
 	this->sign = c.sign;
 	return (*this);
 }
 
-form::~form()
+Form::~Form()
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-std::string form::getName() const
+std::string Form::getName() const
 {
 	return (this->name);
 }
 
-bool form::getSign() const
+bool Form::getSign() const
 {
 	return (this->sign);
 }
 
-int form::getGradeSign() const
+int Form::getGradeSign() const
 {
 	return (this->gradeSign);
 }
 
-int form::getGradeExe() const
+int Form::getGradeExe() const
 {
 	return (this->gradeExe);
 }
 
-const char *form::FormHigh::what() const throw()
+const char *Form::FormHigh::what() const throw()
 {
 	return "Grade too high.";
 }
 
-const char *form::FormLow::what() const throw()
+const char *Form::FormLow::what() const throw()
 {
 	return "Grade too low.";
 }
 
-void form::beSigned(bureaucrat const &bu)
+void Form::beSigned(bureaucrat const &bu)
 {
 	if (bu.getGrade() <= this->getGradeSign())
 		this->sign = true;
 	else
-		throw form::FormLow();
+		throw Form::FormLow();
 }
 
-std::ostream &operator<<(std::ostream& os, const form &Form)
+std::ostream &operator<<(std::ostream& os, const Form &Form)
 {
 	if (Form.getSign() == false)
 		os << "Form " << Form.getName() <<  ", not signed needs grade " << Form.getGradeSign() << " to sign and " << Form.getGradeExe() << " to execute it." << std::endl;
@@ -72,12 +72,12 @@ std::ostream &operator<<(std::ostream& os, const form &Form)
 	return os;
 }
 
-form::form(std::string newName, int sign, int exe) : name(newName), gradeSign(sign), gradeExe(exe)
+Form::Form(std::string newName, int sign, int exe) : name(newName), gradeSign(sign), gradeExe(exe)
 {
 	std::cout << "Custom constructor called." << std::endl;
 	this->sign = false;
 	if (sign  < 1 || exe < 1)
-		throw form::FormHigh();
+		throw Form::FormHigh();
 	else if (sign > 150 || exe > 150)
-		throw form::FormLow();
+		throw Form::FormLow();
 }

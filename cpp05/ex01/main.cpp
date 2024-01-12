@@ -6,7 +6,7 @@ int	main()
 	{
 		bureaucrat b("Man", 90);
 		std::cout << b;
-		form a("Test", 100, 140);
+		Form a("Test", 100, 140);
 		std::cout << a;
 		b.signForm(a);
 		std::cout << a;
