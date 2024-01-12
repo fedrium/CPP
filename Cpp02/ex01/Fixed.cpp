@@ -10,7 +10,7 @@ Fixed::Fixed(const int i)
 
 Fixed::Fixed(const float f)
 {
-    this->fpvn = roundf(f * (1 << this->fb));
+    this->fpvn = std::roundf(f * (1 << this->fb));
     std::cout << "Float constructor called" << std::endl;
 }
 
