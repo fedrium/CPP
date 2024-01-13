@@ -1,5 +1,5 @@
-#ifndef Form_HPP
-#define Form_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <iostream>
 #include <string.h>
@@ -11,7 +11,7 @@ class AForm{
 		AForm();
 		AForm(const AForm &c);
 		AForm &operator=(const AForm &c);
-		virtual ~AForm();
+		virtual ~AForm() = 0;
 		AForm(std::string newName, int sign, int exe);
 		std::string getName() const;
 		bool getSign() const;
@@ -27,7 +27,7 @@ class AForm{
 			public:
 				virtual const char	*what() const throw();
 		};
-	private:
+	protected:
 		std::string const name;
 		bool sign;
 		int const gradeSign;

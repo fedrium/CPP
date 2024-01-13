@@ -3,6 +3,6 @@
 
 int	main()
 {
-	ShruberryCreationAForm a;
+	
 	return 0;
 }

@@ -1,12 +1,18 @@
-#ifndef SHRUBBERYCREATIONAForm_HPP
-#define SHRUBBERYCREATIONAForm_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include "form.hpp"
 
-class ShruberryCreationAForm : public AForm
+class ShruberryCreationForm : public AForm
 {
+	public:
+		ShruberryCreationForm();
+		ShruberryCreationForm(const ShruberryCreationForm &c);
+		ShruberryCreationForm &operator=(const ShruberryCreationForm &c);
+		~ShruberryCreationForm();
+		ShruberryCreationForm(std::string target);
 	private:
-		std::string name;
+		
 };
 
 #endif
