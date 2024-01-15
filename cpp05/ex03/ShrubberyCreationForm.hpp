@@ -16,6 +16,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(std::string newTarget);
 		void	exe() const;
 		std::string getTarget() const;
+		static AForm *intern(std::string target);
 	private:
 		std::string target;
 };

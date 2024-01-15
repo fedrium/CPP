@@ -40,3 +40,8 @@ void	ShrubberyCreationForm::exe() const
 	file << tree;
 	file.close();
 }
+
+AForm *ShrubberyCreationForm::intern(std::string target)
+{
+	return (new ShrubberyCreationForm(target));
+}
