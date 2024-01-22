@@ -1,12 +1,29 @@
 #include "BitcoinExchange.hpp"
+#include <stdlib.h>
+
+void insertData(Bit *bit)
+{
+	string l;
+	string mapped;
+	string value;
+
+	std::ifstream data;
+	data.open("data.csv", std::ifstream::in);
+	getline(data, l);
+	while (getline(data, l))
+	{
+		mapped = l.substr(0, 10);
+		value = l.substr(11, ((int)l.size() - 10));
+		bit->insertValue(mapped, strtof(value.c_str(), NULL));
+	}
+	data.close();
+}
 
 int main(int argc, char **argv)
 {
 	if (argc != 2)
 		cout << "Error: could not open file." << endl;
-	
-	std::map<string, int> input;
-	std::fstream file;
-	file.open(argv[1], std::fstream::in);
-	
+	Bit bit;
+	insertData(&bit);
+	bit.printValue();
 }
