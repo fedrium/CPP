@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <iterator>
+#include <sstream>
 
 using std::string;
 using std::cout;
@@ -24,5 +25,7 @@ class Bit
 	private:
 		std::map<string, float> values;
 };
+
+int dateCheck(string date);
 
 #endif

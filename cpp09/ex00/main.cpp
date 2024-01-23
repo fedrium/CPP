@@ -19,11 +19,35 @@ void insertData(Bit *bit)
 	data.close();
 }
 
+void compareData(Bit *bit, char *str)
+{
+	string l;
+	string mapped;
+	string value;
+	string temp;
+	
+	std::ifstream data;
+	data.open(str, std::ifstream::in);
+	getline(data, l);
+	while (getline(data, l))
+	{
+		temp = l.substr(0, l.rfind('|'));
+		value = l.substr(l.find('|') + 1, l.npos);
+		if (temp.size() == 11)
+		{
+			if (dateCheck(temp) == 1)
+				std::cerr << "Invalid date" << endl;
+		}
+	}
+	(void)bit;
+}
+
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-		cout << "Error: could not open file." << endl;
+		std::cerr << "Error: could not open file." << endl;
 	Bit bit;
 	insertData(&bit);
-	bit.printValue();
+	// bit.printValue();
+	compareData(&bit, argv[1]);
 }
