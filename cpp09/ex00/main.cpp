@@ -36,10 +36,17 @@ void compareData(Bit *bit, char *str)
 		if (temp.size() == 11)
 		{
 			if (dateCheck(temp) == 1)
-				std::cerr << "Invalid date" << endl;
+			{
+				std::cerr << "Error: bad input => " << temp << endl;
+				return;
+			}
+			else
+			{
+				
+			}
 		}
 	}
-	(void)bit;
+
 }
 
 int main(int argc, char **argv)

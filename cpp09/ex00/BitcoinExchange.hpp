@@ -7,6 +7,7 @@
 #include <fstream>
 #include <iterator>
 #include <sstream>
+#include <math.h>
 
 using std::string;
 using std::cout;
@@ -22,6 +23,7 @@ class Bit
 		void dataInsert();
 		void insertValue(string str, float f);
 		void printValue();
+		int compare(string date, float value);
 	private:
 		std::map<string, float> values;
 };

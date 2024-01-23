@@ -49,11 +49,20 @@ int dateCheck(string date)
     day = date.substr(date.rfind('-') + 1, date.npos);
 
     cout << "year: " << year << " month: " << month << " day: " << day << endl;
+    if (date[4] != '-' || date[7] != '-')
+        return (1);
     if (year.size() != 4)
         return (1);
-    if (month.size() != 2 || stoi(month) > 12)
+    if (month.size() != 2 || atoi(month.c_str()) > 12)
         return (1);
-    if (day.size() != 3 || stoi(day) > 31)
+    if (day.size() != 3 || atoi(day.c_str()) > 31)
         return (1);
     return(0);
+}
+
+int Bit::compare(string date, float value)
+{
+    std::map<string, float>::reverse_iterator iter;
+
+    if ()
 }
