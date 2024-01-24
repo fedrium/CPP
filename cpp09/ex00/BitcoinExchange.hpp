@@ -23,11 +23,12 @@ class Bit
 		void dataInsert();
 		void insertValue(string str, float f);
 		void printValue();
-		int compare(string date, float value);
+		float compare(string date, float value);
+		std::map<string, float>::iterator lowerBound(string date);
 	private:
 		std::map<string, float> values;
 };
 
-int dateCheck(string date);
+int dateCheck(string date, string value);
 
 #endif

@@ -19,34 +19,45 @@ void insertData(Bit *bit)
 	data.close();
 }
 
-void compareData(Bit *bit, char *str)
+void compareData(Bit &bit, char *str)
 {
 	string l;
 	string mapped;
 	string value;
-	string temp;
+	string key;
 	
 	std::ifstream data;
 	data.open(str, std::ifstream::in);
 	getline(data, l);
 	while (getline(data, l))
 	{
-		temp = l.substr(0, l.rfind('|'));
+		key = l.substr(0, l.rfind('|'));
 		value = l.substr(l.find('|') + 1, l.npos);
-		if (temp.size() == 11)
+		if (key.size() != 11)
 		{
-			if (dateCheck(temp) == 1)
+			std::cerr << "Error: bad input => " << key << endl;
+		}
+		else if (key.size() == 11)
+		{
+			if (dateCheck(key, value) == 1)
 			{
-				std::cerr << "Error: bad input => " << temp << endl;
-				return;
+				std::cerr << "Error: bad input => " << key << endl;
+			}
+			else if (dateCheck(key, value) == 2)
+			{
+				std::cerr << "Error: not a positive number." << endl;
+			}
+			else if (dateCheck(key, value) == 3)
+			{
+				std::cerr << "Error: too large a number." << endl;
 			}
 			else
 			{
-				
+				float res = bit.compare(key, std::stof(value.c_str()));
+				cout << key << "=>" << value << " = " << res << endl;
 			}
 		}
 	}
-
 }
 
 int main(int argc, char **argv)
@@ -56,5 +67,5 @@ int main(int argc, char **argv)
 	Bit bit;
 	insertData(&bit);
 	// bit.printValue();
-	compareData(&bit, argv[1]);
+	compareData(bit, argv[1]);
 }
