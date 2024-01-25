@@ -53,7 +53,7 @@ void compareData(Bit &bit, char *str)
 			}
 			else
 			{
-				float res = bit.compare(key, std::stof(value.c_str()));
+				float res = bit.compare(key, std::strtof(value.c_str(), NULL));
 				cout << key << "=>" << value << " = " << res << endl;
 			}
 		}

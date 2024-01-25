@@ -8,6 +8,7 @@
 #include <iterator>
 #include <sstream>
 #include <math.h>
+#include <stdlib.h>
 
 using std::string;
 using std::cout;

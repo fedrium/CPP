@@ -48,8 +48,8 @@ int dateCheck(string date, string value)
     string year;
     string month;
     string day;
-    float ivalue = std::stof(value.c_str());
-    float temp = std::stof(value.c_str());
+    float ivalue = std::strtof(value.c_str(), NULL);
+    float temp = std::strtof(value.c_str(), NULL);
 
     year = date.substr(0, date.find('-'));
     month = date.substr(date.find('-') + 1, 2);
