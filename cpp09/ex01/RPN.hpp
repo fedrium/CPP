@@ -19,10 +19,11 @@ class RPN
 		RPN operator=(const RPN &c);
 		~RPN();
 
-		void split(string str);
+		int split(string str);
 		int numberCheck(string num);
 		int operandCheck(string num);
-		void operation(string op);
+		int operation(string op);
+		int getValue();
 	private:
 		std::stack<int> stacks;
 };

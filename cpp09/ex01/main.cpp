@@ -7,5 +7,7 @@ int main(int argc, char **argv)
 
 	RPN rpn;
 
-	rpn.split(argv[1]);
+	if (rpn.split(argv[1]) == 1)
+		return (1);
+	std::cout << rpn.getValue() << endl;
 }

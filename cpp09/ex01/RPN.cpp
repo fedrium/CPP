@@ -27,7 +27,7 @@ int RPN::numberCheck(string value)
 		return (1);
 	if (isdigit(value[0]))
 		return (0);
-	return(0);
+	return(1);
 }
 
 int RPN::operandCheck(string value)
@@ -36,10 +36,10 @@ int RPN::operandCheck(string value)
 		return (1);
 	if (value[0] == '+' || value[0] == '-' || value[0] == '*' || value[0] == '/')
 		return (0);
-	return (0);
+	return (1);
 }
 
-void RPN::operation(string op)
+int RPN::operation(string op)
 {
 	int num1;
 	int num2;
@@ -49,6 +49,8 @@ void RPN::operation(string op)
 	this->stacks.pop();
 	num1 = this->stacks.top();
 	this->stacks.pop();
+	if (num1 == 0 || num2 == 0)
+		return (1);
 	if (op[0] == '+')
 		res = num1 + num2;
 	if (op[0] == '-')
@@ -58,9 +60,10 @@ void RPN::operation(string op)
 	if (op[0] == '/')
 		res = num1 / num2;
 	this->stacks.push(res);
+	return (0);
 }
 
-void RPN::split(string str)
+int RPN::split(string str)
 {
 	string value;
 	std::stringstream s(str);
@@ -69,7 +72,18 @@ void RPN::split(string str)
 	{
 		if (numberCheck(value) == 0)
 		 	this->stacks.push(atoi(value.c_str()));
-		if (operandCheck(value) == 0)
+		else if (operandCheck(value) == 0 && this->stacks.size() >= 2)
 			operation(value);
+		else
+		{
+			std::cerr << "Error" << endl;
+			return (1);
+		}
 	}
+	return (0);
+}
+
+int RPN::getValue()
+{
+	return (this->stacks.top());
 }
