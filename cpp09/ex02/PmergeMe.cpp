@@ -21,6 +21,15 @@ PmergeMe::~PmergeMe()
 
 }
 
+void vector_split(std::vector<int> vec)
+{
+	std::vector<std::pair<int, int> > pair_vec;
+	std::vector<std::pair<int, int> >::iterator pair_vec_ptr;
+	std::vector<int>::iterator ptr;
+
+	
+}
+
 void PmergeMe::insert_value(std::vector<int> vec)
 {
 	std::vector<int>::iterator ptr = vec.begin();
