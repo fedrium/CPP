@@ -4,7 +4,7 @@ int numberCheck(string str)
 {
 	for (int i = 0; i < (int)str.size() - 1; i++)
 	{
-		if (isdigit(str[i]) != 0)
+		if (!isdigit(str[i]))
 			return (1);
 	}
 	return (0);
@@ -31,4 +31,8 @@ int main(int argc, char **argv)
 	}
 
 	pm.insert_value(num_holder);
+	pm.insert_value_l(num_holder);
+	cout << "After: ";
+	pm.printVec();
+	cout << endl;
 }
