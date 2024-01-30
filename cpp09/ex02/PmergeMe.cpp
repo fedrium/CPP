@@ -280,16 +280,18 @@ static std::list<int> ListFJSort(std::list<std::pair<int, int> > &pair_list, int
 	int jacob = 0;
 	int i = 2;
 
-	for (small_ptr = small.begin(); small_ptr != small.end(); ++small_ptr)
-	{
-		cout << *small_ptr << " ";
-	}
-	cout << endl;
+	// for (small_ptr = small.begin(); small_ptr != small.end(); ++small_ptr)
+	// {
+	// 	cout << *small_ptr << " ";
+	// }
+	// cout << endl;
 	// for (big_ptr = big.begin(); big_ptr != big.end(); ++big_ptr)
 	// {
 	// 	cout << *big_ptr << " ";
 	// }
 	// cout << endl;
+
+	std::list<int>::iterator tmp;
 
 	std::list<int>::iterator pend = small.begin();
 	while (n < (int)small.size())
@@ -300,15 +302,20 @@ static std::list<int> ListFJSort(std::list<std::pair<int, int> > &pair_list, int
 			break;
 		std::advance(small_ptr, jacob - 1);
 		small.insert(pend, *small_ptr);
-		std::advance(small_ptr, 1);
+		small_ptr = small.begin();
+		std::advance(small_ptr, n);
 		small.erase(small_ptr);
 		++pend;
 		++i;
 		n++;
 	}
 
+	int now;
 	for (small_ptr = small.begin(); small_ptr != small.end(); ++small_ptr)
 	{
+		now = *small_ptr;
+		if (now < *small_ptr)
+
 		cout << *small_ptr << " ";
 	}
 	cout << endl;
@@ -375,13 +382,13 @@ void PmergeMe::Sort(std::list<int> list)
 	// 	cout << "num : " << (*pair_list_ptr). first << " " << (*pair_list_ptr).second << endl;
 	// }
 
-	cout << "list num: ";
-	std::list<int>::iterator itr;
-	for (itr = l.begin(); itr != l.end(); ++itr)
-	{
-		cout << *itr << " ";
-	}
-	cout << endl;
+	// cout << "list num: ";
+	// std::list<int>::iterator itr;
+	// for (itr = l.begin(); itr != l.end(); ++itr)
+	// {
+	// 	cout << *itr << " ";
+	// }
+	// cout << endl;
 }
 
 void PmergeMe::printVec()
