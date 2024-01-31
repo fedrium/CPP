@@ -1,4 +1,5 @@
-#include "Array.hpp"
+#ifndef ARRAY_TPP
+#define ARRAY_TPP
 
 template <typename T> Array<T>::Array()
 {
@@ -12,6 +13,12 @@ template <typename T> Array<T>::Array(unsigned int n)
 	this->arraySize = n;
 }
 
+template <typename T> Array<T>::Array(const Array &c)
+{
+	this->ptr = c.ptr;
+	this->arraySize = c.arraySize;
+}
+
 template <typename T> Array<T> &Array<T>::operator=(const Array &c)
 {
 	if (this->ptr == &c.ptr)
@@ -22,17 +29,25 @@ template <typename T> Array<T> &Array<T>::operator=(const Array &c)
 
 template <typename T> Array<T>::~Array()
 {
-	delete this->ptr;
+	if (ptr)
+		delete []ptr;
 }
 
 template <typename T> int Array<T>::size()
 {
-	return this->arraysize();
+	return this->arraySize;
 }
 
-template <typename T> int &Array<T>::operator [] (int const n)
+template <typename T> T &Array<T>::operator [] (int const n)
 {
-	if (n >= size())
+	if (n > size())
 		throw Array::OutOfBound();
 	return (ptr[n]);
 }
+
+template <typename T> const char *Array<T>::OutOfBound::what() const throw()
+{
+	return "Out of bound input.";
+}
+
+#endif

@@ -25,7 +25,7 @@ int RPN::numberCheck(string value)
 {
 	if (value.size() > 1)
 		return (1);
-	if (isdigit(value[0]))
+	if (atoi(value.c_str()) != 0)
 		return (0);
 	return(1);
 }
@@ -76,7 +76,7 @@ int RPN::split(string str)
 			operation(value);
 		else
 		{
-			std::cerr << "Error" << endl;
+			std::cerr << "Error: Bad value input" << endl;
 			return (1);
 		}
 	}

@@ -39,11 +39,12 @@ void compareData(Bit &bit, char *str)
 		}
 		else if (key.size() == 11)
 		{
+			// cout << " res; " << dateCheck(key, value) << endl;
 			if (dateCheck(key, value) == 1)
 			{
 				std::cerr << "Error: bad input => " << key << endl;
 			}
-			else if (dateCheck(key, value) == 2)
+			if (dateCheck(key, value) == 2)
 			{
 				std::cerr << "Error: not a positive number." << endl;
 			}
@@ -51,9 +52,14 @@ void compareData(Bit &bit, char *str)
 			{
 				std::cerr << "Error: too large a number." << endl;
 			}
+			else if (dateCheck(key, value) == 4)
+			{
+				cout << key << "=>" << value << " = 0" << endl;
+			}
 			else
 			{
 				float res = bit.compare(key, std::strtof(value.c_str(), NULL));
+				std::cout << std::setprecision(2) << std::showpoint << std::fixed;
 				cout << key << "=>" << value << " = " << res << endl;
 			}
 		}

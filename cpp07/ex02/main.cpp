@@ -1,9 +1,37 @@
-#include <iostream>
 #include "Array.hpp"
+#include <iostream>
 
 #define MAX_VAL 750
 int main(int, char**)
 {
+    // try
+	// {
+	// 	Array<int>		intArray = Array<int>(10);
+	// 	Array<std::string>	strArray = Array<std::string>(2);
+
+	// 	Array<int>		intArray2 = Array<int>();
+		
+
+	// 	intArray[0] = 2;
+	// 	std::cout << intArray[0] << std::endl;
+	// 	std::cout << intArray[1] << std::endl;
+	// 	std::cout << "Size of int array: " << intArray.size() << std::endl;
+
+	// 	std::cout << strArray[0] << std::endl;
+	// 	strArray[0] = "Foo bar baz";
+
+	// 	Array<std::string>	strArray2(strArray);
+	// 	strArray2[0] = "Different text goes here";
+	// 	std::cout << strArray2[0] << std::endl;
+	// 	std::cout << strArray[0] << std::endl;
+		
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
+
+    // return 0;
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));

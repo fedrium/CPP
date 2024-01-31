@@ -9,19 +9,21 @@ class Array
 {
 	public:
 		Array();
-		Array(uint n);
+		Array(unsigned int n);
 		Array(const Array &c);
-		Array<T> &operator=(const Array &c);
+		Array &operator=(const Array &c);
 		~Array();
 		int size();
 		class OutOfBound : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-		int &operator [] (int const n);
+		T &operator [] (int const n);
 	private:
 		T *ptr;
-		unsigned int arraySize();
+		unsigned int arraySize;
 };
+
+#include "Array.tpp"
 
 #endif

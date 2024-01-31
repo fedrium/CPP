@@ -9,6 +9,7 @@
 #include <sstream>
 #include <math.h>
 #include <stdlib.h>
+#include <iomanip>
 
 using std::string;
 using std::cout;

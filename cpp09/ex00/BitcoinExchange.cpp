@@ -50,6 +50,7 @@ int dateCheck(string date, string value)
     string day;
     float ivalue = std::strtof(value.c_str(), NULL);
     float temp = std::strtof(value.c_str(), NULL);
+    int i_temp;
 
     year = date.substr(0, date.find('-'));
     month = date.substr(date.find('-') + 1, 2);
@@ -57,6 +58,7 @@ int dateCheck(string date, string value)
 
     // cout << "year: " << year << " month: " << month << " day: " << day << endl;
     // std::cout << "value: " << ivalue << endl;
+    
     if (date[4] != '-' || date[7] != '-')
         return (1);
     if (year.size() != 4)
@@ -65,10 +67,15 @@ int dateCheck(string date, string value)
         return (1);
     if (day.size() != 3 || atoi(day.c_str()) > 31)
         return (1);
+    if (std::strtof(value.c_str(), NULL) == 0)
+        return(1);
     if (ivalue < 0)
         return (2);
-    if (temp >= 2147483647)
+    if (temp >= 1001)
         return (3);
+    i_temp = atoi(date.c_str());
+    if (i_temp < 2009)
+        return (4);
     return(0);
 }
 
