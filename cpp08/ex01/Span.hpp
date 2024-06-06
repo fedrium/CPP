@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <ctime>
 #include <bits/stdc++.h> 
 
 class Span
@@ -19,12 +20,19 @@ class Span
 			public:
 				virtual const char* what() const throw();
 		};
+		class NumberLow : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 		void addNumber(unsigned int n);
+		void addNumber(int *array, unsigned int size);
 		int shortestSpan();
-		// int longestSpan();
+		int longestSpan();
+		void fillvec();
 	private:
 		std::vector<int> 	array;
-		int 				size;
+		unsigned int 		size;
 };
 
 #endif
