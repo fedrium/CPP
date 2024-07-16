@@ -36,12 +36,12 @@ int bureaucrat::getGrade() const
 
 const char *bureaucrat::GradeHigh::what() const throw()
 {
-	return "Grade too high.";
+	return "Grade too high.\n";
 }
 
 const char *bureaucrat::GradeLow::what() const throw()
 {
-	return "Grade too low.";
+	return "Grade too low.\n";
 }
 
 void	bureaucrat::increment()

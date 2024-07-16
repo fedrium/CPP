@@ -36,12 +36,12 @@ int bureaucrat::getGrade() const
 
 const char *GradeHigh::what() const throw()
 {
-	return "Grade too high.";
+	return "Grade too high.\n";
 }
 
 const char *GradeLow::what() const throw()
 {
-	return "Grade too low.";
+	return "Grade too low.\n";
 }
 
 void	bureaucrat::increment()
@@ -66,7 +66,6 @@ std::ostream& operator<<(std::ostream& os, const bureaucrat& bu)
 
 bureaucrat::bureaucrat(std::string Name, int grade) : name(Name)
 {
-	std::cout << "Custom constructor called" << std::endl;
 	this->grade = grade;
 	if (this->grade > 150)
 		throw this->GradeTooLowException;

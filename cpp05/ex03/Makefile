@@ -1,6 +1,6 @@
 SRC:= *.cpp
 
-NAME:= intern
+NAME:= Intern
 
 RM:= rm -rf
 

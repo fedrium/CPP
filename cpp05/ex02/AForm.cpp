@@ -1,4 +1,4 @@
-#include "form.hpp"
+#include "AForm.hpp"
 #include "bureaucrat.hpp"
 
 AForm::AForm() :  name("NULL"), gradeSign(1), gradeExe(1)

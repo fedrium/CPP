@@ -4,7 +4,7 @@
 #include <iostream>
 #include <ostream>
 #include <string.h>
-#include "form.hpp"
+#include "AForm.hpp"
 
 
 class bureaucrat{
@@ -28,6 +28,7 @@ class bureaucrat{
 		void	increment();
 		void	decrement();
 		void	signForm(AForm &AForm);
+		void	execute(AForm &aform);
 	private:
 		int grade;
 		std::string name;

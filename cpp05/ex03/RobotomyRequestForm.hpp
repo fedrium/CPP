@@ -1,7 +1,7 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
-#include "form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <time.h>

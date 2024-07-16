@@ -5,7 +5,7 @@
 
 struct Data {
 	int temp;
-	std::string palcehodler;
+	std::string palceholder;
 };
 
 #endif

@@ -5,7 +5,7 @@ int main(void)
 {
 	Data	dataA;
 
-	dataA.palcehodler = 'a';
+	dataA.palceholder = 'a';
 	
 	std::cout << "Original address of data structure: " << &dataA << std::endl;
 
@@ -13,6 +13,6 @@ int main(void)
 
 	std::cout << "Address of data structure after serialization and deserialization: " << &dataA << std::endl;
 
-	std::cout << dataA.palcehodler << std::endl;
+	std::cout << dataA.palceholder << std::endl;
 
 }

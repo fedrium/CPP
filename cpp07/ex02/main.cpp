@@ -24,7 +24,7 @@ int main(int, char**)
 	// 	strArray2[0] = "Different text goes here";
 	// 	std::cout << strArray2[0] << std::endl;
 	// 	std::cout << strArray[0] << std::endl;
-		
+	// 	std::cout << "im here" << std::endl;
 	// }
 	// catch(const std::exception& e)
 	// {

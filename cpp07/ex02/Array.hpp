@@ -13,12 +13,12 @@ class Array
 		Array(const Array &c);
 		Array &operator=(const Array &c);
 		~Array();
-		int size();
+		unsigned int size() const;
 		class OutOfBound : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-		T &operator [] (int const n);
+		T &operator [] (unsigned int n);
 	private:
 		T *ptr;
 		unsigned int arraySize;
